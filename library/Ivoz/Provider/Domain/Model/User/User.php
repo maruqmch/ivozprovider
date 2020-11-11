@@ -349,7 +349,7 @@ class User extends UserAbstract implements UserInterface, AdvancedUserInterface,
     /**
      * Get user language
      * returns company language if empty
-     * @return \Ivoz\Provider\Domain\Model\Language\LanguageInterface
+     * @return \Ivoz\Provider\Domain\Model\Language\LanguageInterface | null
      */
     public function getLanguage()
     {

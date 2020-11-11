@@ -36,6 +36,13 @@ interface CompanyInterface extends LoggableEntityInterface
     public function setName($name);
 
     /**
+     * Get language
+     *
+     * @return \Ivoz\Provider\Domain\Model\Language\LanguageInterface | null
+     */
+    public function getLanguage();
+
+    /**
      * {@inheritDoc}
      */
     public function setOnDemandRecordCode($onDemandRecordCode = null);
@@ -320,13 +327,6 @@ interface CompanyInterface extends LoggableEntityInterface
      * @return boolean | null
      */
     public function getShowInvoices();
-
-    /**
-     * Get language
-     *
-     * @return \Ivoz\Provider\Domain\Model\Language\LanguageInterface | null
-     */
-    public function getLanguage();
 
     /**
      * Get mediaRelaySets

@@ -54,7 +54,7 @@ class Company extends CompanyAbstract implements CompanyInterface
             );
         }
 
-        if (!$this->getLanguage()) {
+        if (!parent::getLanguage()) {
             $this->setLanguage(
                 // @todo create a shortcut
                 $this->getBrand()->getLanguage()
@@ -89,6 +89,23 @@ class Company extends CompanyAbstract implements CompanyInterface
                 );
             }
         }
+    }
+
+    /**
+     * Get language
+     *
+     * @return \Ivoz\Provider\Domain\Model\Language\LanguageInterface | null
+     */
+    public function getLanguage()
+    {
+        $language = parent::getLanguage();
+        if ($language) {
+            return $language;
+        }
+
+        return $this
+            ->getBrand()
+            ->getLanguage();
     }
 
     /**
@@ -208,7 +225,7 @@ class Company extends CompanyAbstract implements CompanyInterface
      */
     public function getLanguageCode()
     {
-        $language = $this->getLanguage();
+        $language = parent::getLanguage();
         if (! $language) {
             return $this->getBrand()->getLanguageCode();
         }
